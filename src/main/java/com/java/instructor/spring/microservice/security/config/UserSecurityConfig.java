@@ -43,11 +43,14 @@ public class UserSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.cors().disable().authorizeHttpRequests().requestMatchers("/departments/test").permitAll()
+		return http.cors().disable().authorizeHttpRequests()
+				.requestMatchers("/departments/test").permitAll()
 				.and()
 				.authorizeHttpRequests().requestMatchers("/departments/all").authenticated()
-				.and().formLogin()
-				.and().build();
+				.and()
+				.formLogin()
+				.and()
+				.build();
 
 	}
 	
